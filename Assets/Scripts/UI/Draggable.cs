@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class Draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private float minVisibleWidth;
-    [SerializeField] private float taskbarHeight;
     private Canvas canvas;
     private RectTransform rectTransform;
     private Vector2 offset;
@@ -14,7 +13,7 @@ public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     void Awake()
     {
-        rectTransform = transform.parent.GetComponent<RectTransform>();
+        rectTransform = transform.GetComponent<RectTransform>();
         canvas = GetComponentInParent<Canvas>(true);
 
         // Calculate bounds
@@ -27,7 +26,7 @@ public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         maxX = (canvasSize.x / 2f) + (windowSize.x / 2f) - minVisibleWidth;
 
         // Vertical: keep title bar visible, allow bottom to go off
-        minY = -(canvasSize.y / 2f) - (windowSize.y / 2f) + titleHeight + taskbarHeight;
+        minY = -(canvasSize.y / 2f) - (windowSize.y / 2f) + titleHeight;
         maxY = (canvasSize.y / 2f) - (windowSize.y / 2f);
     }
 
