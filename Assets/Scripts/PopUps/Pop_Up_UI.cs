@@ -12,8 +12,8 @@ public class UI : MonoBehaviour
 
 
     float timer;
-    float minDelay = 30f;
-    float maxDelay = 60f;
+    float minDelay = 20f;
+    float maxDelay = 35f;
     void Start()
     {
         PopUpButtons = GetComponentsInChildren<PopUpButtonUI>();
@@ -46,7 +46,7 @@ public class UI : MonoBehaviour
             float randomY = Random.Range(400, 700);
 
             button.transform.position = new Vector2(randomX, randomY);
-
+            button.transform.SetAsLastSibling();
         }
 
     }

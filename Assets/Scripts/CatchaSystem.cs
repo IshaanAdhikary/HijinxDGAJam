@@ -14,7 +14,9 @@ public class CatchaSystem : MonoBehaviour
     [SerializeField] private GridLayoutGroup gridLayout;
     [SerializeField] private GameObject imagePrefab; // Button with Image component
     [SerializeField] private TextMeshProUGUI instructionText;
-    
+    [SerializeField] private WindowController purrificationWindow;
+    [SerializeField] private GameObject complete;
+
     private List<Button> gridButtons = new List<Button>();
     private int currentRound = 0;
     private const int TOTAL_ROUNDS = 5;
@@ -138,7 +140,9 @@ public class CatchaSystem : MonoBehaviour
     private void OnPassCatcha()
     {
         Debug.Log("Catcha Passed! All 5 rounds completed successfully.");
-        // TODO: Implement success logic here
+        purrificationWindow.Open();
+        complete.SetActive(true);
+        gameObject.SetActive(false);
     }
     
     private void OnMistake()
