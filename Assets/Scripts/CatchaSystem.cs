@@ -16,6 +16,7 @@ public class CatchaSystem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI instructionText;
     [SerializeField] private WindowController purrificationWindow;
     [SerializeField] private GameObject complete;
+    [SerializeField] private Stress stress;
 
     private List<Button> gridButtons = new List<Button>();
     private int currentRound = 0;
@@ -148,6 +149,7 @@ public class CatchaSystem : MonoBehaviour
     private void OnMistake()
     {
         Debug.Log("Mistake made! Resetting Catcha.");
+        stress.raiseStress();
         ResetCatcha();
         // TODO: Implement failure logic here
     }
