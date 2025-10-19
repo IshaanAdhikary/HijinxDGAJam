@@ -138,6 +138,7 @@ public class WindowController : MonoBehaviour
             windowContent.SetActive(false);
         }
 
+
         // Adjust minimize button
         if (minimizeButtonText != null)
         {
