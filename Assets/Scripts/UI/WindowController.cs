@@ -74,7 +74,10 @@ public class WindowController : MonoBehaviour
             gameObject.SetActive(false);
             isOpen = false;
         }
-        taskbar.RegisterWindow(this);
+        if (taskbar != null)
+        {
+            taskbar.RegisterWindow(this);
+        }
     }
 
     public void Open()
