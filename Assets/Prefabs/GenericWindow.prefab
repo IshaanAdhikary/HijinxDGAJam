@@ -825,6 +825,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DraggableWindow
   minVisibleWidth: 250
   taskbarHeight: 100
+  OnWindowDragged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6983478238576242192
 MonoBehaviour:
   m_ObjectHideFlags: 0

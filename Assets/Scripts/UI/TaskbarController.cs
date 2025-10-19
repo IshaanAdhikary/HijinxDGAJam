@@ -42,6 +42,12 @@ public class TaskbarController : MonoBehaviour
         window.OnWindowRestored.AddListener(() => OnWindowRestored(window));
         window.OnWindowClosed.AddListener(() => OnWindowClosed(window));
 
+        DraggableWindow draggable = window.transform.Find("TitleBar").GetComponent<DraggableWindow>();
+        if (draggable != null)
+        {
+            draggable.OnWindowDragged.AddListener(() => OnWindowDragged(window));
+        }
+
         // Hide button initially if window is closed
         if (!window.IsOpen())
         {
@@ -88,6 +94,12 @@ public class TaskbarController : MonoBehaviour
         {
             button.gameObject.SetActive(false);
         }
+    }
+
+    private void OnWindowDragged(WindowController window)
+    {
+        // Bring taskbar to front
+        transform.SetAsLastSibling();
     }
 
     public void BringWindowToFront(WindowController window)
