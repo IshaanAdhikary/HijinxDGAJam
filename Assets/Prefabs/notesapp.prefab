@@ -51,7 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1258384e748c36048bd21b969857116c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WindowController
-  windowTitle: Window
+  windowTitle: To-Do List
   startOpen: 0
   canClose: 1
   canMinimize: 1
