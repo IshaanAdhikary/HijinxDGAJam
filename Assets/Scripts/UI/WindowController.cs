@@ -90,6 +90,9 @@ public class WindowController : MonoBehaviour
         // Bring to front
         transform.SetAsLastSibling();
 
+        // Center on screen
+        rectTransform.anchoredPosition = new Vector2(0, 40);
+
         // Animate open
         if (currentAnimation != null)
         {

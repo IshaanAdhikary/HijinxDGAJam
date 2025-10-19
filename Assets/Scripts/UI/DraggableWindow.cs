@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] private float minVisibleWidth;
     [SerializeField] private float taskbarHeight;
+    public UnityEvent OnWindowDragged;
     private Canvas canvas;
     private RectTransform rectTransform;
     private Vector2 offset;
@@ -33,7 +35,7 @@ public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     private void BringToFront()
     {
-        transform.SetAsLastSibling();
+        transform.parent.SetAsLastSibling();
     }
 
     private Vector2 clampPosition(Vector2 position)
@@ -56,6 +58,7 @@ public class DraggableWindow : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         offset = rectTransform.localPosition - (Vector3)localPoint;
 
         BringToFront();
+        OnWindowDragged?.Invoke();
     }
 
     public void OnDrag(PointerEventData eventData)
