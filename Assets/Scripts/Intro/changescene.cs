@@ -20,6 +20,6 @@ public class changescene : MonoBehaviour
 
     void CheckOver(UnityEngine.Video.VideoPlayer vp)
     {
-        SceneManager.LoadScene("DesktopTest");
+        SceneManager.LoadScene("Desktop");
     }
 }
