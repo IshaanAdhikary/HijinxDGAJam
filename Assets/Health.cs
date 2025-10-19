@@ -12,6 +12,12 @@ public class Health : MonoBehaviour
         stress = BaseStress;
     }
 
+
+    // Update is called once per frame
+    void Update()
+    {
+        animator.SetInteger("StressForNerv",stress);
+    }
     public void raiseStress()
     {
         stress++;
@@ -19,10 +25,5 @@ public class Health : MonoBehaviour
         {
              SceneManager.LoadScene("Introduction");
         }
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        animator.SetInteger("StressForNerv",stress);
     }
 }
